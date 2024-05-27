@@ -13,10 +13,10 @@ while True:
             pyautogui.click(button.left + button.width // 2, button.top + button.height // 2)
             counter += 1
             print(f"Button clicked ({counter} times)")
-            time.sleep(1.5)
+            time.sleep(3)
 
     except pyautogui.ImageNotFoundException:
         pyautogui.moveTo(960, 540)
-        time.sleep(1)
+        time.sleep(3)
 
 print("Exiting")
