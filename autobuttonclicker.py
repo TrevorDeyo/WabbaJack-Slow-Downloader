@@ -16,7 +16,7 @@ while True:
             time.sleep(1.5)
 
     except pyautogui.ImageNotFoundException:
-        pyautogui.moveRel(-100, 0)
+        pyautogui.moveTo(0, 0)
         print("Image not found. Retrying in 1 second...")
         time.sleep(1)
 
