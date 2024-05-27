@@ -8,8 +8,8 @@ while True:
     if keyboard.is_pressed('esc'):
         break
     try:
-        found_button1 = pyautogui.locateOnScreen('button.png')
-        if found_button1:
+        button = pyautogui.locateOnScreen('button.png')
+        if button:
             pyautogui.click(button.left + button.width // 2, button.top + button.height // 2)
             counter += 1
             print(f"Button clicked ({counter} times)")
