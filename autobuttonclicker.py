@@ -3,6 +3,7 @@ import time
 import keyboard
 
 counter = 0
+sleepTime = 3
 
 while True:
     if keyboard.is_pressed('esc'):
@@ -13,10 +14,10 @@ while True:
             pyautogui.click(button.left + button.width // 2, button.top + button.height // 2)
             counter += 1
             print(f"Button clicked ({counter} times)")
-            time.sleep(3)
+            time.sleep(sleepTime)
 
     except pyautogui.ImageNotFoundException:
         pyautogui.moveTo(960, 540)
-        time.sleep(3)
+        time.sleep(sleepTime)
 
 print("Exiting")
