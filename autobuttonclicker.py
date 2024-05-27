@@ -7,7 +7,7 @@ def click_button(button):
     pyautogui.click(button.left + button.width // 2, button.top + button.height // 2)
     global counter
     counter += 1
-    print(f"Button 1 clicked ({counter} times)")
+    print(f"Button clicked ({counter} times)")
     time.sleep(1.5)
 
 while True:
