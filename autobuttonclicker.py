@@ -10,7 +10,7 @@ def locate_custom_object():
     return custom_object
 
 counter = 0
-while not esc_pressed:
+while True:
     if keyboard.is_pressed('esc'):
         break
     try:
@@ -18,10 +18,11 @@ while not esc_pressed:
         if found_object:
             # Perform an action (e.g., click on the found object)
             pyautogui.click(found_object.left + found_object.width // 2, found_object.top + found_object.height // 2)
-            print("clicked successes", counter)
             counter += 1
+            print("clicked successes", counter)
             time.sleep(1.5)
     except pyautogui.ImageNotFoundException:
         # Handle the case when the image is not found
         print("Image not found. Retrying in 1 second...")
-        time.sleep(1.5)  # Wait for 1 second before checking again
+        time.sleep(1)  # Wait for 1 second before checking again
+print("exiting")
