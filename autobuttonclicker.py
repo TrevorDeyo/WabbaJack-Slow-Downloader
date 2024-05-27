@@ -2,27 +2,28 @@ import pyautogui
 import time
 import keyboard
 
-def locate_custom_object():
-    custom_object = None
-    while custom_object is None:
-        # Replace 'button.png' with the path to your custom image
-        custom_object = pyautogui.locateOnScreen('button.png')
-    return custom_object
-
 counter = 0
+def click_button(button):
+    pyautogui.click(button.left + button.width // 2, button.top + button.height // 2)
+    global counter
+    counter += 1
+    print(f"Button 1 clicked ({counter} times)")
+    time.sleep(1.5)
+
 while True:
     if keyboard.is_pressed('esc'):
         break
     try:
-        found_object = locate_custom_object()
-        if found_object:
-            # Perform an action (e.g., click on the found object)
-            pyautogui.click(found_object.left + found_object.width // 2, found_object.top + found_object.height // 2)
-            counter += 1
-            print("clicked successes", counter)
-            time.sleep(1.5)
+        found_button1 = pyautogui.locateOnScreen('button.png')
+        if found_button1:
+            click_button(found_button1)
+
+        found_button2 = pyautogui.locateOnScreen('graybutton.png')
+        if found_button2:
+            click_button(found_button2)
+
     except pyautogui.ImageNotFoundException:
-        # Handle the case when the image is not found
         print("Image not found. Retrying in 1 second...")
-        time.sleep(1)  # Wait for 1 second before checking again
-print("exiting")
+        time.sleep(1)
+
+print("Exiting")
