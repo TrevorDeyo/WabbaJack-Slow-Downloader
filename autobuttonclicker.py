@@ -3,7 +3,7 @@ import time
 import keyboard
 
 counter = 0
-sleepTime = 3
+sleepTime = 5
 
 while True:
     if keyboard.is_pressed('esc'):
