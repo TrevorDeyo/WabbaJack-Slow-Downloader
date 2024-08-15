@@ -5,6 +5,9 @@ import keyboard
 counter = 0
 sleepTime = 5
 
+print("Starting...")
+print("Hold ESC to exit")
+
 while True:
     if keyboard.is_pressed('esc'):
         break
@@ -17,7 +20,8 @@ while True:
             time.sleep(sleepTime)
 
     except pyautogui.ImageNotFoundException:
+        print("Button not found. Trying again in 5 seconds...")
         pyautogui.moveTo(960, 540)
         time.sleep(sleepTime)
 
-print("Exiting")
+print("Exiting...")
